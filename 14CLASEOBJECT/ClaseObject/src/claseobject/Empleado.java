@@ -30,24 +30,26 @@ public class Empleado {
     }
     
     @Override
-    public booblean equals(Object obj){
+    public boolean equals(Object obj){
         if (obj==null){
             return false;
         }
         if (obj instanceof Empleado){
             Empleado emp = (Empleado) obj;
-            if (nombre.equals(emp.nombre)&&)Do
+            if (nombre.equals(emp.nombre) && Double.valueOf(sueldo).equals(emp.sueldo)){
+                return true;
+            }else{
+                return false;
+            }
+        }else{
+            return false;
         }
     }
-    
-}
-public class ClaseObject {
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        // TODO code application logic here
+    @Override    
+    public int hashCode(){
+        int hash = 7;
+        hash = 31 * hash + this.nombre.hashCode();
+        hash = 31 * hash + Double.valueOf(this.sueldo).hashCode();
+        return hash;
     }
-    
 }
